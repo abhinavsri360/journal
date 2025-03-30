@@ -1,0 +1,290 @@
+/* Basic Reset & Root Variables */
+:root {
+    --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --bg-color: #fff;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+}
+
+/* Custom Popup Styles */
+.custom-popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 300px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.popup-info {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.popup-error {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.popup-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.popup-close {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0;
+    margin-left: auto;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.popup-slide-out {
+    animation: slideOut 0.3s ease-out forwards;
+}
+:root {
+    /* Default Light Theme */
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --primary-color: #3498db;
+    --secondary-color: #f0f0f0;
+    --border-color: #ccc;
+    --button-bg: var(--primary-color);
+    --button-text: #fff;
+    --input-bg: #fff;
+    --entry-bg: #fff;
+
+    /* Default Font */
+    --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Dark Theme Variables (applied via .dark-theme class on body) */
+.dark-theme {
+    --background-color: #333;
+    --text-color: #f4f4f4;
+    --primary-color: #5dade2; /* Lighter blue for dark mode */
+    --secondary-color: #444;
+    --border-color: #555;
+    --button-bg: var(--primary-color);
+    --button-text: #333;
+    --input-bg: #555;
+    --entry-bg: #4a4a4a;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: var(--secondary-color);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+header h1 {
+    margin: 0;
+    margin-right: auto; /* Pushes buttons to the right */
+    font-size: 1.5rem;
+}
+
+.warning {
+    width: 100%; /* Take full width below title/buttons */
+    font-size: 0.9rem;
+    color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1);
+    padding: 0.5rem;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+main {
+    padding: 1rem 2rem;
+    max-width: 900px;
+    margin: 1rem auto; /* Center content */
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+    display: inline-block; /* For label */
+    text-align: center;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit; /* Use body font */
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    box-sizing: border-box; /* Include padding in width */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+#entries-section {
+    margin-top: 2rem;
+}
+
+#entries-list {
+    margin-top: 1rem;
+}
+
+.journal-entry {
+    background-color: var(--entry-bg);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.journal-entry h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.journal-entry p {
+    white-space: pre-wrap; /* Preserve line breaks */
+    margin-bottom: 0.5rem;
+}
+
+.entry-meta {
+    font-size: 0.85rem;
+    color: #888; /* Slightly lighter text often works in both themes */
+}
+
+/* Settings Panel */
+.settings-panel {
+    position: fixed; /* Or absolute depending on desired behavior */
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-left: 1px solid var(--border-color);
+    padding: 1rem;
+    box-shadow: -3px 0 10px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.settings-panel.visible {
+    transform: translateX(0);
+}
+
+.settings-panel h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.settings-panel div {
+    margin-bottom: 1rem;
+}
+
+.settings-panel label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.settings-panel select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+.settings-panel #settings-close-btn {
+    margin-top: 1rem;
+    background-color: #aaa; /* Neutral close button */
+}
+
+.hidden {
+    display: none; /* Initially hide panel content area */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header h1 {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+    main {
+        padding: 1rem;
+    }
+    .settings-panel {
+        width: 80%; /* Make panel wider on smaller screens */
+    }
+}

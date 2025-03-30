@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Private Journal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/dexie@3/dist/dexie.js"></script>
+</head>
+<body>
+    <header>
+        <h1>My Private Journal</h1>
+        <button id="settings-toggle-btn">Settings</button>
+        <button id="backup-btn">Backup Journal</button>
+        <button id="restore-btn">Restore from Backup</button>
+        <input type="file" id="restore-input" accept=".json" style="display: none;">
+        <p class="warning"><strong>Important:</strong> Your data is stored ONLY in this browser. Clear browser data = journal lost! Use Backup frequently.</p>
+    </header>
+
+    <aside id="settings-panel" class="settings-panel">
+        <h2>Settings</h2>
+        <div>
+            <label for="theme-select">Theme:</label>
+            <select id="theme-select">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+        <div>
+            <label for="font-select">Font:</label>
+            <select id="font-select">
+                <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Default</option>
+                <option value="'Times New Roman', Times, serif">Serif</option>
+                <option value="'Courier New', Courier, monospace">Monospace</option>
+                <option value="'Arial', Helvetica, sans-serif">Arial</option>
+                <option value="'Georgia', serif">Georgia</option>
+            </select>
+        </div>
+         <button id="settings-close-btn">Close</button>
+    </aside>
+
+    <main>
+        <section id="new-entry-section">
+            <h2>New Entry</h2>
+            <input type="text" id="entry-title" placeholder="Entry Title (Optional)">
+            <textarea id="entry-content" placeholder="Start writing your thoughts..." rows="6"></textarea>
+            <button id="add-entry-btn">Add Entry</button>
+        </section>
+
+        <section id="entries-section">
+            <h2>Your Entries</h2>
+            <div id="entries-list">
+                <p>No entries yet. Write one above!</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
